@@ -12,7 +12,7 @@ is.graph <- function(x)
 
 
 #' is.active
-#'
+#' @keywords internal
 
 is.active <- function()
 {
