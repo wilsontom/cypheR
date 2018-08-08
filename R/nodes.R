@@ -1,7 +1,8 @@
 #' get_total_nodes
 #'
-#' @param grpah a `graph` object
+#' @param graph a `graph` object
 #' @return a numeric value for the total number of nodes in the graph
+#' @export
 
 get_total_nodes <- function(graph)
 {
@@ -11,8 +12,9 @@ get_total_nodes <- function(graph)
 
 #' get_node_types
 #'
-#' @param grpah a `graph` object
+#' @param graph a `graph` object
 #' @return a character vector of node types
+#' @export
 
 get_node_types <- function(graph)
 {
@@ -21,9 +23,11 @@ get_node_types <- function(graph)
 }
 
 #' get_node_labels
-#' @param grpah a `graph` object
+#' @param graph a `graph` object
 #' @param node_type a character indicating the type of node to query
 #' @return a character vector of node labels
+#' @importFrom magritte %>%
+#' @export
 
 get_node_labels <- function(graph, node_type)
 {
@@ -39,9 +43,9 @@ get_node_labels <- function(graph, node_type)
 
 #' delete_nodes
 #'
-#' @param grpah a `graph` object
+#' @param graph a `graph` object
 #' @param node_type a character indicating the type of node to delete
-#'
+#' @export
 
 
 delete_nodes <- function(graph, node_type)

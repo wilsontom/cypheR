@@ -1,8 +1,8 @@
 #' get_total relatioships
 #'
-#' @param grpah a `graph` object
+#' @param graph a `graph` object
 #' @return a numeric value for the total number of relationships (edges) in the graph
-#'
+#' @export
 
 get_total_relationships <- function(graph)
 {
@@ -12,8 +12,9 @@ get_total_relationships <- function(graph)
 
 #' get_relationship_types
 #'
-#' @param grpah a `graph` object
+#' @param graph a `graph` object
 #' @return a character vector of relationship types
+#' @export
 
 get_relationship_types <- function(graph)
 {
@@ -23,9 +24,10 @@ get_relationship_types <- function(graph)
 }
 
 #' get_relationship_labels
-#' @param grpah a `graph` object
+#' @param graph a `graph` object
 #' @param rel a character indicating the type of relationship to query
 #' @return a character vector of relationship labels
+#' @export
 
 get_relationship_labels <- function(graph, rel)
 {
