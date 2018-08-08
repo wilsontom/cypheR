@@ -26,7 +26,7 @@ get_node_types <- function(graph)
 #' @param graph a `graph` object
 #' @param node_type a character indicating the type of node to query
 #' @return a character vector of node labels
-#' @importFrom magritte %>%
+#' @importFrom magrittr %>%
 #' @export
 
 get_node_labels <- function(graph, node_type)
