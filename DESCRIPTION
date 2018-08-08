@@ -4,7 +4,7 @@ Title: Pre-built Cypher commands for R
 Version: 0.1.0
 Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")))
-Description: Wrappers for creating Cypher queries in RNeo4j
+Description: Wrappers for creating Cypher queries in RNeo4j.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
