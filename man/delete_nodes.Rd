@@ -7,9 +7,9 @@
 delete_nodes(graph, node_type)
 }
 \arguments{
-\item{node_type}{a character indicating the type of node to delete}
+\item{graph}{a `graph` object}
 
-\item{grpah}{a `graph` object}
+\item{node_type}{a character indicating the type of node to delete}
 }
 \description{
 delete_nodes

@@ -7,7 +7,7 @@
 get_relationship_types(graph)
 }
 \arguments{
-\item{grpah}{a `graph` object}
+\item{graph}{a `graph` object}
 }
 \value{
 a character vector of relationship types

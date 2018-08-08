@@ -7,7 +7,7 @@
 get_node_types(graph)
 }
 \arguments{
-\item{grpah}{a `graph` object}
+\item{graph}{a `graph` object}
 }
 \value{
 a character vector of node types

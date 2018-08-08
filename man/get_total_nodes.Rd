@@ -7,7 +7,7 @@
 get_total_nodes(graph)
 }
 \arguments{
-\item{grpah}{a `graph` object}
+\item{graph}{a `graph` object}
 }
 \value{
 a numeric value for the total number of nodes in the graph

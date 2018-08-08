@@ -7,9 +7,9 @@
 get_node_labels(graph, node_type)
 }
 \arguments{
-\item{node_type}{a character indicating the type of node to query}
+\item{graph}{a `graph` object}
 
-\item{grpah}{a `graph` object}
+\item{node_type}{a character indicating the type of node to query}
 }
 \value{
 a character vector of node labels

@@ -7,9 +7,9 @@
 get_relationship_labels(graph, rel)
 }
 \arguments{
-\item{rel}{a character indicating the type of relationship to query}
+\item{graph}{a `graph` object}
 
-\item{grpah}{a `graph` object}
+\item{rel}{a character indicating the type of relationship to query}
 }
 \value{
 a character vector of relationship labels

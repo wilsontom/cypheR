@@ -7,7 +7,7 @@
 get_total_relationships(graph)
 }
 \arguments{
-\item{grpah}{a `graph` object}
+\item{graph}{a `graph` object}
 }
 \value{
 a numeric value for the total number of relationships (edges) in the graph
