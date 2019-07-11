@@ -7,7 +7,8 @@
 get_total_relationships <- function(graph)
 {
   query <- paste0('MATCH ()-->() RETURN count(*)')
-  return(as.numeric(RNeo4j::cypher(graph, query)[[1]]))
+  result <- neo4r::call_neo4j(query, graph)[[1]]
+  return(as.numeric(result))
 }
 
 #' get_relationship_types
@@ -19,8 +20,8 @@ get_total_relationships <- function(graph)
 get_relationship_types <- function(graph)
 {
   query <- paste0('MATCH ()-[r]-() RETURN DISTINCT type(r)')
-  return(RNeo4j::cypher(graph, query)[[1]])
-
+  result <- neo4r::call_neo4j(query, graph)[[1]]$value
+  return(result)
 }
 
 #' get_relationship_labels
@@ -31,8 +32,14 @@ get_relationship_types <- function(graph)
 
 get_relationship_labels <- function(graph, rel)
 {
-  query <- paste('MATCH ()-[r:',rel,']-() RETURN keys(r)')
-  return(RNeo4j::cypher(graph, query) %>% unlist() %>% unique())
+  query <- paste('MATCH ()-[r:', rel, ']-() RETURN keys(r)')
+  result <- neo4r::call_neo4j(query, graph)[[1]] %>% unique()
+  if (nrow(result) == 0) {
+    message(paste0('No labels for relationship: ', deparse(substitute(rel))))
+    return(invisible(NULL))
+  }
+  names(result) <- 'label'
+  return(result)
 }
 
 
