@@ -7,7 +7,8 @@
 get_total_nodes <- function(graph)
 {
   query <- paste0('MATCH (n) RETURN count (n)')
-  return(as.numeric(RNeo4j::cypher(graph, query)[[1]]))
+  result <- neo4r::call_neo4j(query, graph)[[1]]
+  return(as.numeric(result$value))
 }
 
 #' get_node_types
@@ -19,48 +20,27 @@ get_total_nodes <- function(graph)
 get_node_types <- function(graph)
 {
   query <- paste0('MATCH (n) RETURN DISTINCT labels(n)')
-  return(RNeo4j::cypher(graph, query)[[1]])
+  result <- neo4r::call_neo4j(query, graph)[[1]]
+  names(result) <- 'NodeType'
+  return(result)
 }
 
-#' get_node_labels
+
+#' get_nodes
 #' @param graph a `graph` object
-#' @param node_type a character indicating the type of node to query
-#' @return a character vector of node labels
-#' @importFrom magrittr %>%
+#' @param node_type a character indicating the type of node to return
+#' @return a `tibble` of nodes and their properties
 #' @export
 
-get_node_labels <- function(graph, node_type)
+get_nodes <- function(graph, node_type)
 {
-  available_node_types <- get_node_types(graph = graph)
+  available_node_types <- get_node_types(graph = graph)$NodeType
 
   if (!node_type %in% available_node_types) {
     stop(deparse(substitute(node_type)), ' is not valid node type', call. = FALSE)
   } else{
-    query <- paste0('MATCH (n:', node_type, ') RETURN keys(n)')
-    return(RNeo4j::cypher(graph, query) %>% unlist() %>% unique())
+    query <- paste0('MATCH (n:', node_type, ') RETURN (n)')
+    result <- neo4r::call_neo4j(query, graph)[[1]]
   }
-}
-
-#' delete_nodes
-#'
-#' @param graph a `graph` object
-#' @param node_type a character indicating the type of node to delete
-#' @export
-
-
-delete_nodes <- function(graph, node_type)
-{
-  available_node_types <- get_node_types(graph = graph)
-
-  if (!node_type %in% available_node_types) {
-    stop(deparse(substitute(node_type)), ' is not valid node type', call. = FALSE)
-  } else{
-    nnodes_a <- get_total_nodes(graph = graph)
-
-    query <- paste0('MATCH (n:', node_type, ') DELETE (n)')
-    RNeo4j::cypher(graph, query)
-    nnodes_b <- get_total_nodes(graph = graph)
-    message(paste0(nnodes_a - nnodes_b, ' nodes deleted'))
-    return(invisible(NULL))
-  }
+  return(result)
 }
