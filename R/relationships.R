@@ -3,6 +3,7 @@
 #' @param graph a `graph` object
 #' @return a numeric value for the total number of relationships (edges) in the graph
 #' @export
+#' @importFrom magrittr %>%
 
 get_total_relationships <- function(graph)
 {

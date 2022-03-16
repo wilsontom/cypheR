@@ -1,49 +1,44 @@
 #' List available graph algorithms
 #'
-#' List the algorithms available for the graph database instance from either the `aglo` or `apoc` plugin
+#' List the algorithms available for the graph database instance
 #'
 #' @param graph a `graph` object
-#' @return a `tibble` of the Graph algorithms available
+#' @return a `tbl_df` of the Graph algorithms available
 #' @export
 
-available_algorithms <- function(graph, plugin)
+available_algorithms <- function(graph)
 {
-  if (plugin == 'algo') {
-    query <- paste0('CALL algo.list()')
-  }
-
-  if (plugin == 'apoc') {
-    query <- paste0('CALL apoc.help(', "'", 'apoc', "'", ')')
-
-  }
+  algo_query <- paste0('CALL algo.list()')
+  apoc_query <- paste0('CALL apoc.help(', "'", 'apoc', "'", ')')
 
 
-  result <- neo4r::call_neo4j(query, graph)
-
-  if (plugin == 'algo') {
-    algo_tibble <-
-      tibble::tibble(
-        name = result$name,
-        description = result$description,
-        signature = result$signature,
-        type = result$type
-      )
-
-    return(algo_tibble)
-  }
-
-  if (plugin == 'apoc') {
-    apoc_tibble <-
-      tibble::tibble(
-        name = result$name,
-        description = result$text,
-        signature = result$signature,
-        type = result$type
-      )
+  algo_result <- neo4r::call_neo4j(algo_query, graph)
+  apoc_result <- neo4r::call_neo4j(apoc_query, graph)
 
 
-    return(apoc_tibble)
+  algo_tibble <-
+    tibble::tibble(
+      name = algo_result$name,
+      description = algo_result$description,
+      signature = algo_result$signature,
+      type = algo_result$type
+    )
 
-  }
+  apoc_tibble <-
+    tibble::tibble(
+      name = apoc_result$name,
+      description = apoc_result$text,
+      signature = apoc_result$signature,
+      type = apoc_result$type
+    )
+
+
+
+  all_tibble <-  dplyr::bind_rows(algo_tibble, apoc_tibble)
+
+
+  return(all_tibble)
+
+
 
 }

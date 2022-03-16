@@ -4,14 +4,14 @@
 \alias{available_algorithms}
 \title{List available graph algorithms}
 \usage{
-available_algorithms(graph, plugin)
+available_algorithms(graph)
 }
 \arguments{
 \item{graph}{a `graph` object}
 }
 \value{
-a `tibble` of the Graph algorithms available
+a `tbl_df` of the Graph algorithms available
 }
 \description{
-List the algorithms available for the graph database instance from either the `aglo` or `apoc` plugin
+List the algorithms available for the graph database instance
 }

@@ -11,7 +11,9 @@ LazyData: true
 Depends:
     magrittr
 Imports: 
-    neo4r
+    neo4r,
+    tibble,
+    dplyr
 Suggests:
     testthat, 
     covr
