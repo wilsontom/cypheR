@@ -1,20 +1,20 @@
 Package: cypheR
 Type: Package
-Title: Pre-built Cypher commands for R
-Version: 0.1.0
+Title: Cypher interface for R
+Version: 0.2.0
 Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")))
-Description: Wrappers for creating Cypher queries for neo4j grpah databases. 
+Description: API wrappers for sending Cypher queries to a neo4j database server. 
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 Depends:
     magrittr
 Imports: 
-    neo4r,
-    tibble,
-    dplyr
+    httr2,
+    glue
 Suggests:
     testthat, 
     covr
-RoxygenNote: 7.1.2
+RoxygenNote: 7.3.2
+Roxygen: list(markdown = TRUE)
