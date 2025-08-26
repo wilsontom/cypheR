@@ -4,6 +4,7 @@
 #' @param graphdb a S4 graphdb object
 #' @param cypher_query a cypher query in the form of a character stringr
 #' @return a `httr2_response`
+#' @importFrom magrittr %>%
 #'
 #' @export
 
