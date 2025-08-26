@@ -2,7 +2,7 @@
 #' @rdname show
 #' @param object a `graphdb` object
 #' @return NULL
-#' @importFrom methods show function
+#' @importFrom methods show
 #' @export
 
 
