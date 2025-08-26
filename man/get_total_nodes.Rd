@@ -2,10 +2,12 @@
 % Please edit documentation in R/cypher.R
 \name{get_total_nodes}
 \alias{get_total_nodes}
-\title{Default Cypher Queries}
+\title{Default Cypher Queries
+Get Total Nodes}
 \usage{
 get_total_nodes()
 }
 \description{
 Default Cypher Queries
+Get Total Nodes
 }

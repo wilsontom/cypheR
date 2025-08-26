@@ -2,18 +2,13 @@
 % Please edit documentation in R/cypher.R
 \name{get_relationship_labels}
 \alias{get_relationship_labels}
-\title{#' @export
-get_relationship_types <- function()
-{
-return(paste0('MATCH ()-->() RETURN count(*)'))
-}}
+\title{Get Relationship Labels}
 \usage{
 get_relationship_labels(rel)
 }
-\description{
-#' @export
-get_relationship_types <- function()
-{
-return(paste0('MATCH ()-->() RETURN count(*)'))
+\arguments{
+\item{rel}{a character string of the relationship to query}
 }
+\description{
+Get Relationship Labels
 }
