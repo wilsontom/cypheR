@@ -12,7 +12,12 @@ Depends:
     magrittr
 Imports: 
     httr2,
-    glue
+    glue,
+    methods,
+    cli,
+    crayon,
+    dplyr,
+    purrr
 Suggests:
     testthat, 
     covr
